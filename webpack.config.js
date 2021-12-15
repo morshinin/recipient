@@ -57,7 +57,27 @@ module.exports = (env, argv) => {
 				},
 				{
 					test: /\.css$/,
-					use: [isDev ? 'vue-style-loader' : MiniCssExtractPlugin.loader, 'css-loader'],
+					oneOf: [
+						{
+							resourceQuery: /module/,
+							use: [
+								'vue-style-loader',
+								{
+									loader: 'css-loader',
+									options: {
+										localsConvention: 'camelCase',
+										modules: {
+											mode: 'local',
+											localIdentName: '[name]__[local]__[hash:base64:5]',
+										},
+									},
+								},
+							],
+						},
+						{
+							use: [isDev ? 'vue-style-loader' : MiniCssExtractPlugin.loader, 'css-loader'],
+						},
+					]
 				},
 				{
 					test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,

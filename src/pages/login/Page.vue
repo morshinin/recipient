@@ -33,6 +33,6 @@ export default Vue.extend({
 		loginError: {},
 		updateLogin: {},
 		loginRequest: {},
-	},
+	} as FormProps,
 });
 </script>
