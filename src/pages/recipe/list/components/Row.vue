@@ -6,12 +6,17 @@
 		<td :class="$style.description">
 			<span>{{ recipe.description }}</span>
 		</td>
+		<td>
+			<span v-for="(ingredient, i) in recipe.ingredients" :key="`ingredient_${i}`">
+				{{ ingredient }}
+			</span>
+		</td>
 		<td :class="$style.editButton">
 			<v-btn flat icon :to="`recipe/${recipe.id}`">
 				<v-icon>edit</v-icon>
 			</v-btn>
 		</td>
-	</tr>
+	</tr>	
 </template>
 
 <script lang="ts">
