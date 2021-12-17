@@ -2,7 +2,7 @@
 	<v-layout row align-center>
 		<v-chip>
 			{{ ingredient }}
-			<v-icon right @click="() => onRemoveIngredient(ingredient)">закрыть</v-icon>
+			<v-icon right @click="() => onRemoveIngredient(ingredient)">close</v-icon>
 		</v-chip>
 	</v-layout>
 </template>
