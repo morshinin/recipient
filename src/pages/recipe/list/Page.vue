@@ -1,6 +1,7 @@
 <template>
 	<v-container>
-		<h2>Рецепты</h2>
+		<h2>Отвратительные рецепты</h2>
+		<!-- <dashboard-component /> -->
 		<search-bar-component :search-text="searchText" :on-search="onSearch" />
 		<table-component :recipes="filteredRecipes" />
 	</v-container>
@@ -9,12 +10,20 @@
 <script lang="ts">
 import Vue, { PropOptions } from 'vue';
 import { Recipe } from './viewModel';
-import { TableComponent, SearchBarComponent } from './components';
+import { 
+		TableComponent,
+		SearchBarComponent,
+		// DashboardComponent
+	} from './components';
 import { filterRecipesByCommaSeparatedText } from './business/filterRecipeBusiness';
 
 export default Vue.extend({
 	name: 'RecipeListPage',
-	components: { TableComponent, SearchBarComponent },
+	components: { 
+		TableComponent,
+		SearchBarComponent,
+		// DashboardComponent
+	},
 	props: {
 		recipes: {} as PropOptions<Recipe[]>,
 	},

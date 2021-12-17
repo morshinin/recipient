@@ -7,9 +7,11 @@
 			<span>{{ recipe.description }}</span>
 		</td>
 		<td>
-			<span v-for="(ingredient, i) in recipe.ingredients" :key="`ingredient_${i}`">
-				{{ ingredient }}
-			</span>
+			<ul :class="$style.list">
+				<li v-for="(ingredient, i) in recipe.ingredients" :key="`ingredient_${i}`">
+					{{ ingredient }}
+				</li>	
+			</ul>
 		</td>
 		<td :class="$style.editButton">
 			<v-btn flat icon :to="`recipe/${recipe.id}`">
@@ -43,14 +45,15 @@ export default Vue.extend({
 }
 
 .description span {
-	/*white-space: nowrap;*/
-	/*overflow: hidden;*/
-	/*text-overflow: ellipsis;*/
 	display: inline-block;
 	max-width: 100%;
 }
 
 .edit-button {
 	text-align: end;
+}
+
+.list {
+	list-style: none;
 }
 </style>

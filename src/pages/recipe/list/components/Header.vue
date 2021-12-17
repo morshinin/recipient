@@ -2,6 +2,7 @@
 	<thead>
 		<th>Название</th>
 		<th>Описание</th>
+		<th>Ингредиенты</th>
 		<th></th>
 	</thead>
 </template>
